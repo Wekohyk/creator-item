@@ -19,9 +19,9 @@ import App from './App.vue';
 
 const app = createApp(App);
 
-app.use(pinia);
-app.use(i18n);
 app.directive('back-to-top', backToTop);
 
+app.use(pinia);
+app.use(i18n);
 app.use(router);
 app.mount('#app');

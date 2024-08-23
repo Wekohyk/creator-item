@@ -18,24 +18,24 @@
         <div class="flex-1 flex items-center h-44 pl-9px">
           <div class="flex items-center mt-1" v-if="!hideBack" @click="back">
             <div class="relative w-26 h-26">
-              <!-- <GlyIcon
-                FIGMA_KEY="4e671fd0853c20e938ab4920d790da031c4bc3ae"
-                name="vip_icon_back"
-                icon="28ed18522e79f42fbd2bf3b7eee9c110"
-                :size="26"
-                class="absolute top-0 left-0 duration-200 transition-all ease-in"
-                :class="{ 'opacity-0': currentColor === '#000' }"
-                color="#fff"
+              <img
+                v-if="isShowGoBackMode"
+                src="/goBackDark.webp"
+                alt=""
+                :style="{
+                  width: goBackWidth,
+                  height: goBackHeight,
+                }"
               />
-              <GlyIcon
-                FIGMA_KEY="4e671fd0853c20e938ab4920d790da031c4bc3ae"
-                name="vip_icon_back"
-                icon="28ed18522e79f42fbd2bf3b7eee9c110"
-                :size="26"
-                class="absolute -top-32 left-0 duration-200 transition-all ease-in"
-                :class="{ 'opacity-0': currentColor === '#fff' }"
-                color="#000"
-              /> -->
+              <img
+                v-else
+                src="/goBackLight.webp"
+                alt=""
+                :style="{
+                  width: goBackWidth,
+                  height: goBackHeight,
+                }"
+              />
             </div>
           </div>
           <slot name="navigationBarLeading"></slot>
@@ -73,6 +73,7 @@
 
 <script setup lang="ts">
 import { useAttrs, ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 interface Props {
   transparentNavigationBar?: boolean;
@@ -84,9 +85,17 @@ interface Props {
   navBackgroundColor?: string;
   enableBackToTop?: boolean;
   currentColor?: string;
+  goBackWidth?: string;
+  goBackHeight?: string;
+  isShowGoBackMode?: boolean;
 }
 
-withDefaults(defineProps<Props>(), { scrollable: true });
+withDefaults(defineProps<Props>(), {
+  scrollable: true,
+  goBackHeight: '18px',
+  goBackWidth: '18px',
+  isShowGoBackMode: true,
+});
 
 interface Emits {
   (e: 'back'): void;
@@ -111,13 +120,17 @@ interface Slots {
 }
 defineSlots<Slots>();
 
+const router = useRouter();
 const attrs = useAttrs();
 const back = () => {
   if (Reflect.has(attrs, 'onBack')) {
     emit('back');
   } else {
     // tw.router.close();
-    window.close();
+    // window.close();
+    // 利用vue-router返回上一页
+    router.back();
+    console.log('关闭当前页面');
   }
 };
 </script>
