@@ -17,6 +17,11 @@ import backToTop from './directive/back-to-top';
 // App
 import App from './App.vue';
 
+/** 解决浏览器警告
+ * Added non-passive event listener to a scroll-blocking 'touchmove' event. Consider marking event handler as 'passive' to make the page more responsive.
+ */
+import 'default-passive-events';
+
 const app = createApp(App);
 
 app.directive('back-to-top', backToTop);
