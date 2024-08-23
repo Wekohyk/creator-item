@@ -12,6 +12,8 @@ import i18n from './lang';
 import './assets/styles/index.scss';
 // Import the Unocss utilities styles
 import 'uno.css';
+// 全局定义指令
+import backToTop from './directive/back-to-top';
 // App
 import App from './App.vue';
 
@@ -19,5 +21,7 @@ const app = createApp(App);
 
 app.use(pinia);
 app.use(i18n);
+app.directive('back-to-top', backToTop);
+
 app.use(router);
 app.mount('#app');
