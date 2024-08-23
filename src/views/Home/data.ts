@@ -112,3 +112,5 @@ export const widgetCardList = ref<WidgetCardList[]>([
     usePeople: '4.8万人使用',
   },
 ]);
+
+export const sortValueList = ['综合排序', '最新发布', '最多使用'];

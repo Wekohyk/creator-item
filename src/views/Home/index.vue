@@ -48,8 +48,14 @@
 
       <div class="flex justify-between px-16 mt-16">
         <div class="font-600 text-17">周热度飙升榜</div>
-        <div class="flex items-center text-#5C5C5C text-14">
-          <span>综合排序</span>
+        <div class="flex items-center text-#5C5C5C text-14" @click="openSort">
+          <div class="relative">
+            <span>综合排序</span>
+            <SortSelection
+              :visible="visible"
+              :sortValue="sortValueList"
+            ></SortSelection>
+          </div>
           <Icon
             icon="eva:arrow-down-fill"
             width="16px"
@@ -76,8 +82,16 @@
 import PageLayout from '@/components/PageLayout.vue';
 import RankCard from './RankCard.vue';
 import WidgetCard from './WidgetCard.vue';
+import SortSelection from './SortSelection.vue';
 import { Icon } from '@iconify/vue';
-import { weekList, widgetCardList } from './data';
+import { weekList, widgetCardList, sortValueList } from './data';
+import { ref } from 'vue';
+
+const visible = ref(false);
+
+const openSort = () => {
+  visible.value = !visible.value;
+};
 </script>
 
 <style scoped lang="scss"></style>
