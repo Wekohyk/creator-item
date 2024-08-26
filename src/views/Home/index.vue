@@ -50,10 +50,11 @@
         <div class="font-600 text-17">周热度飙升榜</div>
         <div class="flex items-center text-#5C5C5C text-14" @click="openSort">
           <div class="relative">
-            <span>综合排序</span>
+            <span>{{ sortName ? sortName : '综合排序' }}</span>
             <SortSelection
               :visible="visible"
               :sortValue="sortValueList"
+              @selectSortName="selectSortName"
             ></SortSelection>
           </div>
           <Icon
@@ -91,6 +92,11 @@ const visible = ref(false);
 
 const openSort = () => {
   visible.value = !visible.value;
+};
+
+const sortName = ref<string>('');
+const selectSortName = (name: string) => {
+  sortName.value = name;
 };
 </script>
 

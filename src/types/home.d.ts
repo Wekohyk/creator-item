@@ -16,3 +16,8 @@ export interface WidgetCardList {
   authorImg: string;
   usePeople: string;
 }
+
+export interface SortValueList {
+  name: string;
+  id: number;
+}

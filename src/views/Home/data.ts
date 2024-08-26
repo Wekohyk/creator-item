@@ -1,5 +1,6 @@
 import { ref } from 'vue';
 import { WeekList, WidgetCardList } from '@/types/home';
+import { SortValueList } from '@/types/home';
 
 export const weekList = ref<WeekList[]>([
   {
@@ -113,4 +114,8 @@ export const widgetCardList = ref<WidgetCardList[]>([
   },
 ]);
 
-export const sortValueList = ['综合排序', '最新发布', '最多使用'];
+export const sortValueList: SortValueList[] = [
+  { name: '综合排序', id: 0 },
+  { name: '最新发布', id: 1 },
+  { name: '最多使用', id: 2 },
+];

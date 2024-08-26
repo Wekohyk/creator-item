@@ -13,23 +13,35 @@
         class="w-76 h-37 lh-37 text-center b-b-0.5 b-b-solid b-b-#F2F2F7"
         v-for="(item, index) in sortValue"
         :key="index"
+        @click="selectSort(item.id)"
+        :style="selectedSortId === index ? 'color: #0A7AFF' : ''"
       >
-        {{ item }}
+        {{ item.name }}
       </div>
     </div>
   </transition>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import { SortValueList } from '@/types/home';
 interface Props {
   visible: boolean;
-  sortValue?: string[];
+  sortValue?: SortValueList[];
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   visible: false,
-  sortValue: () => ['综合排序', '最新发布', '最多使用'],
+  sortValue: () => [{ name: '综合排序', id: 0 }],
 });
+
+const emit = defineEmits(['selectSortName']);
+
+const selectedSortId = ref(0);
+const selectSort = (id: number) => {
+  selectedSortId.value = id;
+  emit('selectSortName', props.sortValue[id].name);
+};
 </script>
 
 <style scoped lang="scss"></style>
