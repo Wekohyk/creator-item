@@ -20,7 +20,10 @@
       <div class="mt-24">
         <div class="flex justify-between px-12">
           <div class="font-600 text-17">周热度飙升榜</div>
-          <div class="flex items-center gap-4 text-#0A7AFF text-14">
+          <div
+            class="flex items-center gap-4 text-#0A7AFF text-14"
+            @click="goHeatSurge"
+          >
             <span>查看全部</span>
             <Icon icon="weui:arrow-outlined" class="text-16" />
           </div>
@@ -87,6 +90,7 @@ import SortSelection from './SortSelection.vue';
 import { Icon } from '@iconify/vue';
 import { weekList, widgetCardList, sortValueList } from './data';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 const visible = ref(false);
 
@@ -97,6 +101,12 @@ const openSort = () => {
 const sortName = ref<string>('');
 const selectSortName = (name: string) => {
   sortName.value = name;
+};
+
+const router = useRouter();
+
+const goHeatSurge = () => {
+  router.push('/heatSurge');
 };
 </script>
 

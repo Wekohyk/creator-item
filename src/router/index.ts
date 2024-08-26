@@ -8,6 +8,11 @@ const router = createRouter({
       component: () => import('@/views/Home/index.vue'),
       meta: { title: 'Home' },
     },
+    {
+      path: '/heatSurge',
+      component: () => import('@/views/HeatSurge/index.vue'),
+      meta: { title: 'HeatSurge' },
+    },
   ],
 });
 
