@@ -16,36 +16,36 @@
         <div
           class="flex flex-col justify-center items-center w-full absolute"
           :class="
-            widgetCardList[id].leave[0] === '小'
+            widgetCardList[Number(id)].leave[0] === '小'
               ? 'top-49'
-              : widgetCardList[id].leave[0] === '中'
+              : widgetCardList[Number(id)].leave[0] === '中'
                 ? 'top-71'
                 : 'top-44'
           "
         >
           <img
             :src="
-              widgetCardList[id].leave[0] === '小'
+              widgetCardList[Number(id)].leave[0] === '小'
                 ? '/smallWidget.webp'
-                : widgetCardList[id].leave[0] === '中'
+                : widgetCardList[Number(id)].leave[0] === '中'
                   ? '/mediumWidget.webp'
                   : '/largeWidget.webp'
             "
             alt=""
             class="shadow-[0px_30px_40px_0px_#0000000D] rounded-24"
             :class="
-              widgetCardList[id].leave[0] === '小'
+              widgetCardList[Number(id)].leave[0] === '小'
                 ? 'w-160 h-160'
-                : widgetCardList[id].leave[0] === '中'
+                : widgetCardList[Number(id)].leave[0] === '中'
                   ? 'w-248 h-116'
                   : 'w-177.5 h-186'
             "
           />
           <div class="text-20 font-600 text-#0F0F0F mt-24">
-            {{ widgetCardList[id].widgetName }}
+            {{ widgetCardList[Number(id)].widgetName }}
           </div>
           <div class="text-12 text-#0A7AFF mt-10">
-            {{ widgetCardList[id].usePeople }}
+            {{ widgetCardList[Number(id)].usePeople }}
           </div>
         </div>
         <div
@@ -58,10 +58,10 @@
             <img src="/avatar.webp" alt="" class="w-48 h-48 rounded-50%" />
             <div class="flex flex-col">
               <div class="text-16 font-600">
-                {{ widgetCardList[id].authorName }}
+                {{ widgetCardList[Number(id)].authorName }}
               </div>
               <div class="text-12 text-#8A8A8A">
-                {{ '组件id:' + widgetCardList[id].id }}
+                {{ '组件id:' + widgetCardList[Number(id)].id }}
               </div>
             </div>
           </div>
