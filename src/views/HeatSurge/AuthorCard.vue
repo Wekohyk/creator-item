@@ -13,8 +13,14 @@
     />
     <div class="flex justify-center items-center flex-col gap-4">
       <div
-        class="py-4 bg-#fff text-#ECA800 font-600 rounded-6"
-        :class="top === 1 ? 'text-15 px-8' : 'text-13 px-6'"
+        class="py-4 bg-#fff font-600 rounded-6"
+        :class="
+          top === 1
+            ? 'text-15 px-8 text-#ECA800'
+            : top === 2
+              ? 'text-13 px-6 text-#899FAF'
+              : 'text-13 px-6 text-#DAAA81'
+        "
       >
         {{ 'TOP.' + top }}
       </div>
