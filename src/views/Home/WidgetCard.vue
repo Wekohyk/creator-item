@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-type Leave = '小' | '中' | '大';
+import { Leave } from './data';
 
 interface Props {
   leave?: Leave[];

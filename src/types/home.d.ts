@@ -9,6 +9,7 @@ export interface WeekList {
 export type Leave = '小' | '中' | '大';
 
 export interface WidgetCardList {
+  id: index;
   leave: Leave[];
   img: string;
   widgetName: string;

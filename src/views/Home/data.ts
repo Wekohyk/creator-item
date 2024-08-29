@@ -47,8 +47,10 @@ export const weekList = ref<WeekList[]>([
   },
 ]);
 
+export type Leave = '小' | '中' | '大';
 export const widgetCardList = ref<WidgetCardList[]>([
   {
+    id: '0',
     authorName: '狗电筒',
     authorImg: '/avatar.webp',
     leave: ['小', '中', '大'],
@@ -57,6 +59,7 @@ export const widgetCardList = ref<WidgetCardList[]>([
     usePeople: '4.8万人使用',
   },
   {
+    id: '1',
     authorName: '狗电筒',
     authorImg: '/avatar.webp',
     leave: ['中', '大'],
@@ -65,6 +68,7 @@ export const widgetCardList = ref<WidgetCardList[]>([
     usePeople: '4.8万人使用',
   },
   {
+    id: '2',
     authorName: '狗电筒',
     authorImg: '/avatar.webp',
     leave: ['大'],
@@ -73,6 +77,7 @@ export const widgetCardList = ref<WidgetCardList[]>([
     usePeople: '4.8万人使用',
   },
   {
+    id: '3',
     authorName: '狗电筒',
     authorImg: '/avatar.webp',
     leave: ['小', '中', '大'],
@@ -81,6 +86,7 @@ export const widgetCardList = ref<WidgetCardList[]>([
     usePeople: '4.8万人使用',
   },
   {
+    id: '4',
     authorName: '狗电筒',
     authorImg: '/avatar.webp',
     leave: ['中'],
@@ -89,6 +95,7 @@ export const widgetCardList = ref<WidgetCardList[]>([
     usePeople: '4.8万人使用',
   },
   {
+    id: '5',
     authorName: '狗电筒',
     authorImg: '/avatar.webp',
     leave: ['小'],
@@ -97,6 +104,7 @@ export const widgetCardList = ref<WidgetCardList[]>([
     usePeople: '4.8万人使用',
   },
   {
+    id: '6',
     authorName: '狗电筒',
     authorImg: '/avatar.webp',
     leave: ['小', '大'],
@@ -105,6 +113,7 @@ export const widgetCardList = ref<WidgetCardList[]>([
     usePeople: '4.8万人使用',
   },
   {
+    id: '7',
     authorName: '狗电筒',
     authorImg: '/avatar.webp',
     leave: ['小', '中', '大'],
@@ -119,3 +128,5 @@ export const sortValueList: SortValueList[] = [
   { name: '最新发布', id: 1 },
   { name: '最多使用', id: 2 },
 ];
+
+export const ShareAppList = [];

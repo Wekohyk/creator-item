@@ -75,11 +75,14 @@
             v-for="(item, index) in widgetCardList"
             :key="index"
             :leave="item.leave"
+            @click="shareWidget(item.id)"
           ></WidgetCard>
         </div>
       </div>
     </div>
   </PageLayout>
+
+  <ShareWight :visible="shareWidgetValue" :id="shareWightItem"></ShareWight>
 </template>
 
 <script setup lang="ts">
@@ -87,6 +90,7 @@ import PageLayout from '@/components/PageLayout.vue';
 import RankCard from './RankCard.vue';
 import WidgetCard from './WidgetCard.vue';
 import SortSelection from './SortSelection.vue';
+import ShareWight from './ShareWight.vue';
 import { Icon } from '@iconify/vue';
 import { weekList, widgetCardList, sortValueList } from './data';
 import { ref } from 'vue';
@@ -107,6 +111,14 @@ const router = useRouter();
 
 const goHeatSurge = () => {
   router.push('/heatSurge');
+};
+
+const shareWightItem = ref<string>('1');
+// 分享组件
+const shareWidgetValue = ref(false);
+const shareWidget = (item: string) => {
+  shareWidgetValue.value = !shareWidgetValue.value;
+  shareWightItem.value = item;
 };
 </script>
 
