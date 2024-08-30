@@ -82,7 +82,11 @@
     </div>
   </PageLayout>
 
-  <ShareWight :visible="shareWidgetValue" :id="shareWightItem"></ShareWight>
+  <ShareWight
+    :visible="shareWidgetValue"
+    :id="shareWightItem"
+    @offShareWidget="offShare"
+  ></ShareWight>
 </template>
 
 <script setup lang="ts">
@@ -119,6 +123,10 @@ const shareWidgetValue = ref(false);
 const shareWidget = (item: string) => {
   shareWidgetValue.value = !shareWidgetValue.value;
   shareWightItem.value = item;
+};
+
+const offShare = (value: boolean) => {
+  shareWidgetValue.value = value;
 };
 </script>
 

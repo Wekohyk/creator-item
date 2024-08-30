@@ -129,4 +129,11 @@ export const sortValueList: SortValueList[] = [
   { name: '最多使用', id: 2 },
 ];
 
-export const ShareAppList = [];
+export const ShareAppList = [
+  { name: '微信', imgUrl: '/sharePage/Wechat.webp' },
+  { name: 'QQ', imgUrl: '/sharePage/QQ.webp' },
+  { name: '微博', imgUrl: '/sharePage/WeiBo.webp' },
+  { name: '小红书', imgUrl: '/sharePage/XiaoHongShu.webp' },
+  { name: '朋友圈', imgUrl: '/sharePage/PengYouQuan.webp' },
+  { name: '存入相册', imgUrl: '/sharePage/XiangCe.webp' },
+];

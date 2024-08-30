@@ -74,20 +74,52 @@
 
       <!-- 下方分享 -->
       <div
-        class="fixed bottom-0 left-0 w-full h-146 bg-#fff rounded-t-15"
-      ></div>
+        class="fixed bottom-0 left-0 w-full bg-#fff rounded-t-15 flex flex-col items-center pb-44px"
+      >
+        <div class="flex items-center mt-14px">
+          <div class="text-14 font-500">分享到</div>
+          <Icon
+            icon="ion:close"
+            width="16px"
+            height="16px"
+            color="#D9D9D9"
+            class="absolute top-15 right-15"
+            @click="offShare"
+          />
+        </div>
+        <div
+          class="flex items-center justify-start gap-20 overflow-x-scroll scrollbar-hidden mt-26px"
+        >
+          <div
+            class="shrink-0 first:ml-30px flex flex-col items-center gap-8"
+            v-for="(item, index) in ShareAppList"
+            :key="index"
+          >
+            <img :src="item.imgUrl" alt="" class="w-46 h-46" />
+            <div class="text-12 text-#0F0F0F">{{ item.name }}</div>
+          </div>
+        </div>
+      </div>
     </div>
   </transition>
 </template>
 
 <script setup lang="ts">
-import { widgetCardList } from './data';
+import { widgetCardList, ShareAppList } from './data';
+import { Icon } from '@iconify/vue';
+
 interface Props {
   visible: boolean;
   id: string;
 }
 
 withDefaults(defineProps<Props>(), {});
+
+const emit = defineEmits(['offShareWidget']);
+
+const offShare = () => {
+  emit('offShareWidget', false);
+};
 </script>
 
 <style scoped lang="scss">
